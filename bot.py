@@ -248,6 +248,21 @@ async def process_search(message: Message, state: FSMContext):
     await message.answer(response, parse_mode="HTML", reply_markup=back_keyboard())
     await state.clear()
 
+import threading
+from aiohttp import web
+
+async def handle(request):
+    return web.Response(text="Bot is running!")
+
+def run_web():
+    app = web.Application()
+    app.router.add_get('/', handle)
+    web.run_app(app, host="0.0.0.0", port=10000)
+
 if __name__ == "__main__":
-    dp.run_polling(bot)
+    # Запускаем обманку для Render в отдельном потоке
+    threading.Thread(target=run_web, daemon=True).start()
+    # Запускаем нашего бота
+    import asyncio
+    asyncio.run(dp.start_polling(bot))
     
