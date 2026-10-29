@@ -1,4 +1,3 @@
-cat << 'EOF' > bot.py
 import logging
 import sqlite3
 from aiogram import Bot, Dispatcher, html, F
