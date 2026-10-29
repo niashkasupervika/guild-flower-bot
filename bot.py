@@ -44,7 +44,7 @@ def main_menu_keyboard():
         [InlineKeyboardButton(text="📝 Мой профиль / Регистрация", callback_query_data="menu_profile")],
         [InlineKeyboardButton(text="👤 Профиль другого игрока", callback_query_data="menu_other_profile")],
         [InlineKeyboardButton(text="🌸 Добавить цветок", callback_query_data="menu_add")],
-        [InlineKeyboardButton(text="🔍 Найти цветок по названию", callback_query_data="menu_find")]
+        [InlineKeyboardButton(text="🔍 Найти цветок по названием", callback_query_data="menu_find")]
     ])
 
 def back_keyboard():
